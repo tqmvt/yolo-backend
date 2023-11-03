@@ -151,10 +151,6 @@ router.Use(middleware.CORSMiddleware())
 │   └── router.go
 </pre>
 
-### Examples
-
-- More Example [saas-examples](https://github.com/akmamun/saas-examples)
-
 ### Let's Build an API
 
 1. [models](models) folder add a new file name `example_model.go`

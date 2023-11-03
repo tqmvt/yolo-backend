@@ -18,3 +18,8 @@
 vendor/
 .vscode/
 tmp/
+
+.DS_Store
+main
+
+docker/data/

@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data

@@ -1,4 +1,4 @@
-module gin-boilerplate
+module saas
 
 go 1.17
 

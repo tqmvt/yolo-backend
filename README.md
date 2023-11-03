@@ -153,7 +153,7 @@ router.Use(middleware.CORSMiddleware())
 
 ### Examples
 
-- More Example [gin-boilerplate-examples](https://github.com/akmamun/gin-boilerplate-examples)
+- More Example [saas-examples](https://github.com/akmamun/saas-examples)
 
 ### Let's Build an API
 
@@ -184,8 +184,8 @@ func (e *Example) TableName() string {
 package migrations
 
 import (
-	"gin-boilerplate/infra/database"
-	"gin-boilerplate/models"
+	"saas/infra/database"
+	"saas/models"
 )
 
 // Migrate Add list of model add for migrations
@@ -208,8 +208,8 @@ func Migrate() {
 package controllers
 
 import (
-  "gin-boilerplate/models"
-  "gin-boilerplate/repository"
+  "saas/models"
+  "saas/repository"
   "github.com/gin-gonic/gin"
   "net/http"
 )
@@ -233,7 +233,7 @@ func Create(ctx *gin.Context) {
 package routers
 
 import (
-  "gin-boilerplate/controllers"
+  "saas/controllers"
   "github.com/gin-gonic/gin"
   "net/http"
 )

@@ -1,7 +1,8 @@
 package routers
 
 import (
-	"gin-boilerplate/routers/middleware"
+	"saas/routers/middleware"
+
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 )
@@ -22,7 +23,7 @@ func SetupRoute() *gin.Engine {
 	router.Use(gin.Recovery())
 	router.Use(middleware.CORSMiddleware())
 
-	RegisterRoutes(router) //routes register
+	RegisterRoutes(router) // routes register
 
 	return router
 }

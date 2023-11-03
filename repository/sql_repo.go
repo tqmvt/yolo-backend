@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"gin-boilerplate/infra/database"
-	"gin-boilerplate/infra/logger"
+	"saas/infra/database"
+	"saas/infra/logger"
 )
 
 func Save(model interface{}) interface{} {

@@ -1,13 +1,14 @@
 package main
 
 import (
-	"gin-boilerplate/config"
-	"gin-boilerplate/infra/database"
-	"gin-boilerplate/infra/logger"
-	"gin-boilerplate/migrations"
-	"gin-boilerplate/routers"
-	"github.com/spf13/viper"
+	"saas/config"
+	"saas/infra/database"
+	"saas/infra/logger"
+	"saas/migrations"
+	"saas/routers"
 	"time"
+
+	"github.com/spf13/viper"
 )
 
 func main() {

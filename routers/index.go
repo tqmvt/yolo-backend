@@ -19,5 +19,6 @@ func RegisterRoutes(route *gin.Engine) {
 
 	// users routes
 	route.GET("/v1/users", controllers.GetUsers)
+	route.GET("/v1/users/:id", controllers.GetUser)
 	route.POST("/v1/users", controllers.CreateUser)
 }

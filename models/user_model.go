@@ -6,12 +6,12 @@ import (
 
 type User struct {
 	Id            int        `json:"id"`
-	FirstName     string     `json:"first_name"`
-	LastName      string     `json:"last_name"`
-	WalletAddress string     `json:"wallet_address" binding:"required"`
+	FirstName     string     `json:"firstName"`
+	LastName      string     `json:"lastName"`
+	WalletAddress string     `json:"walletAddress" binding:"required"`
 	Email         string     `json:"email"`
-	CreatedAt     *time.Time `json:"created_at,string,omitempty"`
-	UpdatedAt     *time.Time `json:"updated_at_at,string,omitempty"`
+	CreatedAt     *time.Time `json:"createdAt,string,omitempty"`
+	UpdatedAt     *time.Time `json:"updatedAt,string,omitempty"`
 }
 
 func (e *User) UsersTable() string {

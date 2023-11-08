@@ -18,6 +18,11 @@ func Get(model interface{}) interface{} {
 	return err
 }
 
+func GetUserByID(model interface{}, userID int) error {
+	err := database.DB.First(model, userID).Error
+	return err
+}
+
 func GetOne(model interface{}) interface{} {
 	err := database.DB.Last(model).Error
 	return err

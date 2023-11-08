@@ -88,7 +88,7 @@ Follow these steps:
 
 - Copy [.env.example](.env.example) as `.env` and configure necessary values
 - To add all dependencies for a package in your module `go get .` in the current directory
-- Locally run `go run main.go` or `go build main.go` and run `./main`
+- Locally run `go run main.go` or `go build main.go` and run `./main`. or run `air` to host with hot reloading
 - Check Application health available on [0.0.0.0:8000/health](http://0.0.0.0:8000/health)
 
 #### Develop Application in Docker with Live Reload

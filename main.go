@@ -6,6 +6,7 @@ import (
 	"saas/infra/logger"
 	"saas/migrations"
 	"saas/routers"
+	"saas/seeds"
 	"time"
 
 	"github.com/spf13/viper"
@@ -13,8 +14,8 @@ import (
 
 func main() {
 
-	//set timezone
-	viper.SetDefault("SERVER_TIMEZONE", "Asia/Dhaka")
+	// set timezone
+	viper.SetDefault("SERVER_TIMEZONE", "America/Los_Angeles")
 	loc, _ := time.LoadLocation(viper.GetString("SERVER_TIMEZONE"))
 	time.Local = loc
 
@@ -26,8 +27,11 @@ func main() {
 	if err := database.DbConnection(masterDSN, replicaDSN); err != nil {
 		logger.Fatalf("database DbConnection error: %s", err)
 	}
-	//later separate migration
+	// later separate migration
 	migrations.Migrate()
+
+	// seed database
+	seeds.SeedUsers()
 
 	router := routers.SetupRoute()
 	logger.Fatalf("%v", router.Run(config.ServerConfig()))

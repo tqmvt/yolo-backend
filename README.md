@@ -1,10 +1,10 @@
-# Backend for Go
+# YOLO Backend
 
-An API app written in Golang with Gin Framework and Gorm
+Written in Golang with Gin Framework and Gorm
 
 ### Motivation
 
-Write restful API with fast development and developer friendly
+Write restful API for YOLO game with fast development and developer friendly
 
 ## Table of Contents
 
@@ -112,7 +112,7 @@ router.Use(gin.Recovery())
 router.Use(middleware.CORSMiddleware())
 ```
 
-### Boilerplate Structure
+### Folder Structure
 
 <pre>├── <font color="#3465A4"><b>config</b></font>
 │   ├── config.go
@@ -150,102 +150,6 @@ router.Use(middleware.CORSMiddleware())
 │   │   └── cors.go
 │   └── router.go
 </pre>
-
-### Let's Build an API
-
-1. [models](models) folder add a new file name `example_model.go`
-
-```go
-package models
-
-import (
-	"time"
-)
-
-type Example struct {
-	Id        int        `json:"id"`
-	Data      string     `json:"data" binding:"required"`
-	CreatedAt *time.Time `json:"created_at,string,omitempty"`
-	UpdatedAt *time.Time `json:"updated_at_at,string,omitempty"`
-}
-// TableName is Database Table Name of this model
-func (e *Example) TableName() string {
-	return "examples"
-}
-```
-
-2. Add Model to [migration](pkg/database/migration.go)
-
-```go
-package migrations
-
-import (
-	"saas/infra/database"
-	"saas/models"
-)
-
-// Migrate Add list of model add for migrations
-func Migrate() {
-	var migrationModels = []interface{}{&models.Example{}}
-	err := database.DB.AutoMigrate(migrationModels...)
-	if err != nil {
-		return
-	}
-}
-
-```
-
-3. [controller](controllers) folder add a file `example_controller.go`
-
-- Create API Endpoint
-- Write Database Operation in Repository and use them from controller
-
-```go
-package controllers
-
-import (
-  "saas/models"
-  "saas/repository"
-  "github.com/gin-gonic/gin"
-  "net/http"
-)
-
-func GetData(ctx *gin.Context) {
-  var example []*models.Example
-  repository.Get(&example)
-  ctx.JSON(http.StatusOK, &example)
-
-}
-func Create(ctx *gin.Context) {
-  example := new(models.Example)
-  repository.Save(&example)
-  ctx.JSON(http.StatusOK, &example)
-}
-```
-
-4. [routers](routers) folder add a file `example.go`
-
-```go
-package routers
-
-import (
-  "saas/controllers"
-  "github.com/gin-gonic/gin"
-  "net/http"
-)
-
-func RegisterRoutes(route *gin.Engine) {
-  route.GET("/health", func(ctx *gin.Context) { ctx.JSON(http.StatusOK, gin.H{"live": "ok"}) })
-  //added new
-  route.GET("/v1/example/", controllers.GetData)
-  route.POST("/v1/example/", controllers.Create)
-
-  //Add All route
-  //TestRoutes(route)
-}
-```
-
-- Congratulation, your new endpoint `0.0.0.0:8000/v1/example/`
 
 ### Deployment
 

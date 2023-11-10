@@ -4,7 +4,7 @@ Written in Golang with Gin Framework and Gorm
 
 ### Motivation
 
-Write restful API for YOLO game with fast development and developer friendly
+Write restful API for [YOLO](https://looksrare.org/yolo) game with fast development and developer friendly
 
 ## Table of Contents
 
@@ -17,10 +17,6 @@ Write restful API for YOLO game with fast development and developer friendly
 - [Installation](#installation)
   - [Local Setup Instruction](#local-setup-instruction)
   - [Develop Application in Docker with Live Reload](#develop-application-in-docker-with-live-reload)
-- [Middlewares](#middlewares)
-- [Boilerplate Structure](#boilerplate-structure)
-- [Code Examples](#examples)
-- [Let's Build an API](#lets-build-an-api)
 - [Deployment](#deployment)
   - [Container Development Build](#container-development-build)
   - [Container Production Build and Up](#container-production-build-and-up)
@@ -100,56 +96,6 @@ Follow these steps:
 - Docker Composer Installation https://docs.docker.com/compose/install/
 - Run and Develop `make dev`
 - Check Application health available on [0.0.0.0:8000/health](http://0.0.0.0:8000/health)
-
-### Middlewares
-
-- Use Gin CORSMiddleware
-
-```go
-router := gin.New()
-router.Use(gin.Logger())
-router.Use(gin.Recovery())
-router.Use(middleware.CORSMiddleware())
-```
-
-### Folder Structure
-
-<pre>├── <font color="#3465A4"><b>config</b></font>
-│   ├── config.go
-│   ├── db.go
-│   └── server.go
-├── <font color="#3465A4"><b>controllers</b></font>
-│   └── example_controller.go
-├── docker-compose-dev.yml
-├── docker-compose-prod.yml
-├── Dockerfile
-├── Dockerfile-dev
-├── go.mod
-├── go.sum
-├── <font color="#3465A4"><b>helpers</b></font>
-│   ├── response.go
-│   └── search.go
-├── <font color="#3465A4"><b>infra</b></font>
-│   ├── <font color="#3465A4"><b>database</b></font>
-│   │   └── database.go
-│   └── <font color="#3465A4"><b>logger</b></font>
-│       └── logger.go
-├── LICENSE
-├── main.go
-├── Makefile
-├── <font color="#3465A4"><b>migrations</b></font>
-│   └── migration.go
-├── <font color="#3465A4"><b>models</b></font>
-│   └── example_model.go
-├── README.md
-├── <font color="#3465A4"><b>repository</b></font>
-│   └── sql_repo.go
-├── <font color="#3465A4"><b>routers</b></font>
-│   ├── index.go
-│   ├── <font color="#3465A4"><b>middleware</b></font>
-│   │   └── cors.go
-│   └── router.go
-</pre>
 
 ### Deployment
 

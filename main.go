@@ -6,6 +6,7 @@ import (
 	"saas/infra/logger"
 	"saas/migrations"
 	"saas/routers"
+	"saas/seeds"
 	"time"
 
 	"github.com/spf13/viper"
@@ -30,7 +31,9 @@ func main() {
 	migrations.Migrate()
 
 	// seed database
-	// seeds.SeedUsers()
+	seeds.SeedUsers()
+	seeds.SeedRounds()
+	seeds.SeedPlayers()
 
 	router := routers.SetupRoute()
 	logger.Fatalf("%v", router.Run(config.ServerConfig()))
